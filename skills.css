@@ -1,0 +1,214 @@
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500);
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #242943;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+h1 {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 5px;
+    margin-bottom: 50px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1::before, h1::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(to right, #ff0099, #00ccff);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding: 20px;
+    color: white;
+}
+
+/* Default large screen styling */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 20%;
+    width: 21.75vw;
+    height: 50vh;
+    background: linear-gradient(#00BFFF, rgb(255, 0, 123));
+    clip-path: circle(30% at right 70%);
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 26.02vw;
+    height: 59.82vh;
+    background: linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 20%);
+    z-index: -1;
+}
+
+section .extra-circle-1 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 7.767vw;
+    height: 17.857vh;
+    background: linear-gradient(#ff0099, #ff6699);
+    clip-path: circle(50% at 50% 50%);
+}
+
+section .extra-circle-2 {
+    position: absolute;
+    bottom: 50%;
+    right: 35%;
+    width: 9.321vw;
+    height: 21.428vh;
+    background: linear-gradient(#00FFFF, #ff6699);
+    clip-path: circle(50% at 50% 50%);
+}
+
+/* Media queries for responsiveness */
+
+/* For tablet screens */
+@media screen and (max-width: 768px) {
+    section::before {
+        top: 5%;
+        right: 15%; /* Adjust position for smaller screens */
+    }
+
+    section::after {
+        top: 10%;
+        left: 15%; /* Adjust position for smaller screens */
+    }
+
+    section .extra-circle-1 {
+        top: 60%; /* Shift down slightly */
+        left: 20%; /* Move towards the left */
+        width: 14vw;
+        height: 14vh;
+    }
+
+    section .extra-circle-2 {
+        bottom: 50%;
+        right: 30%; /* Adjust to fit screen */
+        width: 21vw;
+        height: 21vh;
+    }
+}
+
+/* For mobile screens */
+@media screen and (max-width: 480px) {
+    section::before {
+        top: 10%;
+        right: 10%; /* Further adjust for small screens */
+    }
+
+    section::after {
+        top: 20%;
+        left: 10%; /* Further adjust for small screens */
+    }
+
+    section .extra-circle-1 {
+        top: 70%; /* Adjust for smaller height */
+        left: 20%; /* Shift for better visibility */
+        width: 8.75vw;
+        height: 8.75h;
+    }
+
+    section .extra-circle-2 {
+        bottom: 60%;
+        right: 25%; /* Shift to stay on screen */
+        width: 13.125vw;
+        height: 13.125vh;
+    }
+}
+
+/* Tile layout remains the same */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align tiles */
+    margin-bottom: 20px; /* Space between rows */
+    gap: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    gap: 20px; /* Space between rows */
+}
+
+.tile {
+    position: relative;
+    width: 100px; /* You can adjust this if you want */
+    height: 100px; /* You can adjust this if you want */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.tile .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.tile .content .contentBx {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center align content */
+    text-align: center; /* Center text */
+}
+
+.tile:hover .content {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.tile .content .contentBx h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.1em;
+}
